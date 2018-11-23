@@ -5,10 +5,10 @@
 #### Wicked simple pure javascript cross platform Dymo Labewriter printing module for Node.js with no platform dependencies.
 
 This module works on **Mac**, **Linux**, and **Windows**.
- 
+
  - no `gyp` build needed
  - no `Microsoft Visual Studio` needed.
- - no `gcc` or `c++` build needed 
+ - no `gcc` or `c++` build needed
 
 ### install
 
@@ -21,6 +21,10 @@ or if you are stuck in the old school
 ```
 npm i dymojs
 ```
+
+### Certificate Trust
+
+You'll need to change the `ca.pem` in the `lib/` folder out with your own `ca.pem`, as Dymo has started generating the certificate on install recently.
 
 ### usage
 
@@ -35,7 +39,7 @@ dymo.print('DYMO LabelWriter 450', labelXml);
 Open the free `DYMO Label` software and design a label.  When you have designed one save it.  The file it saves is an XML document like the one below.  Simply pass that XML or (hint hint) a version of that XML that you did some string replacement on to the print function with a printer name and you are printing labels.
 
 ### working example that prints a test label
-This example will print TEST123 on a shipping size label (2 1/8" x 4") to a printer named 'DYMO LabelWriter 450'. 
+This example will print TEST123 on a shipping size label (2 1/8" x 4") to a printer named 'DYMO LabelWriter 450'.
 
 ```
 const Dymo = require('dymojs'),
@@ -70,7 +74,7 @@ var labelXml = `
         <Element>
           <String>T</String>
           <Attributes>
-            <Font Family="Helvetica" Size="13" 
+            <Font Family="Helvetica" Size="13"
             	Bold="False" Italic="False" Underline="False" Strikeout="False"/>
             <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>
           </Attributes>
@@ -78,7 +82,7 @@ var labelXml = `
         <Element>
           <String>EST123</String>
           <Attributes>
-            <Font Family="Helvetica" Size="13" 
+            <Font Family="Helvetica" Size="13"
             	Bold="False" Italic="False" Underline="False" Strikeout="False"/>
             <ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>
           </Attributes>
@@ -90,4 +94,3 @@ var labelXml = `
 </DieCutLabel>
 `;
 ```
-										
